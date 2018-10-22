@@ -14,6 +14,7 @@ namespace lab10
             bool isInputValid = false;
             string input = null;
             double radius = 0;
+            List<Circle> circles = new List<Circle>();
 
             Console.WriteLine("Welcome to the Circle Tester");
 
@@ -37,19 +38,20 @@ namespace lab10
                 } while (!isInputValid);
 
                 Circle c = new Circle(radius);
+                circles.Add(c); 
                 c.CalculateFormattedCircumference();
                 Console.WriteLine(c.CalculateFormattedCircumference());
                 c.CalculateFormattedArea();
                 Console.WriteLine(c.CalculateFormattedArea());
 
-                Console.WriteLine("Continue? (yes/no)");
+                Console.WriteLine("Continue? (y/n)");
                 input = Console.ReadLine();
-                if (input.Equals("yes", StringComparison.InvariantCultureIgnoreCase))
+                if (input.Equals("y", StringComparison.InvariantCultureIgnoreCase))
                 {
                     shouldContinue = true;
                 }
-
             } while (shouldContinue);
+            Console.WriteLine("Goodbye. You created " + circles.Count + " Circle object(s)");
             Console.ReadKey();
         }   
     }
